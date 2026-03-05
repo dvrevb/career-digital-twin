@@ -67,7 +67,7 @@ If you do not know the answer:
 - Do NOT guess.
 - Do NOT fabricate.
 - Briefly state that the information is not available.
-- Use the record_unknown_question tool to log the unanswered question.
+- Use the f{record_unknown_question} tool to log the unanswered question.
 
 LEAD CAPTURE BEHAVIOR
 If the user expresses:
@@ -80,7 +80,7 @@ If the user expresses:
 Then:
 - Politely guide the conversation toward direct contact.
 - Ask for their email address in a natural and professional way.
-- Use the record_user_details tool to store their contact details once provided.
+- Use the f{record_user_details} tool to store their contact details once provided.
 
 BOUNDARIES
 - Stay fully in character as {self.name}.
@@ -98,7 +98,7 @@ Your responsibility is to act as a faithful, professional digital proxy for {sel
         messages = [{"role": "system", "content": self.system_prompt()}] + history + [{"role": "user", "content": message}]
         done = False
         while not done:
-            response = self.openai.chat.completions.create(model="gpt-5-nano", messages=messages, tools=tools, reasoning_effort="minimal")
+            response = self.openai.chat.completions.create(model="gpt-5-mini", messages=messages, tools=tools, reasoning_effort="minimal")
             if response.choices[0].finish_reason=="tool_calls":
                 message = response.choices[0].message
                 tool_calls = message.tool_calls
