@@ -2,13 +2,13 @@ from openai import OpenAI
 import json
 from pypdf import PdfReader
 from tools import record_user_details, record_unknown_question, tools
-
+import os
 
 class Me:
 
     def __init__(self):
         self.openai = OpenAI()
-        self.name = "Burak Çevik"
+        self.name = os.getenv("YOUR_NAME")
         reader = PdfReader("me/linkedin.pdf")
         self.linkedin = ""
         for page in reader.pages:
@@ -98,7 +98,7 @@ Your responsibility is to act as a faithful, professional digital proxy for {sel
         messages = [{"role": "system", "content": self.system_prompt()}] + history + [{"role": "user", "content": message}]
         done = False
         while not done:
-            response = self.openai.chat.completions.create(model="gpt-4o-mini", messages=messages, tools=tools)
+            response = self.openai.chat.completions.create(model="gpt-5-nano", messages=messages, tools=tools, reasoning_effort="minimal")
             if response.choices[0].finish_reason=="tool_calls":
                 message = response.choices[0].message
                 tool_calls = message.tool_calls
