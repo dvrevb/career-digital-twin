@@ -4,6 +4,9 @@ app_file: app.py
 sdk: gradio
 sdk_version: 6.8.0
 ---
+
+[Open the Project](https://huggingface.co/spaces/revbc/career-digital-twin)
+
 # Career Digital Twin
 
 An AI-powered digital representative that accurately represents a professional's career profile, experience, and expertise through natural conversation.
