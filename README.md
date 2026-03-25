@@ -27,7 +27,7 @@ This project creates an intelligent chatbot that serves as your official digital
 
 ### Using uv
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/dvrevb/career-digital-twin.git
 cd career-digital-twin
 uv sync
 uv run app.py
@@ -35,7 +35,7 @@ uv run app.py
 
 ### Using conda
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/dvrevb/career-digital-twin.git
 cd career-digital-twin
 conda create -n career-twin python=3.12
 conda activate career-twin
@@ -45,7 +45,7 @@ python app.py
 
 ### Using pip
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/dvrevb/career-digital-twin.git
 cd career-digital-twin
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
